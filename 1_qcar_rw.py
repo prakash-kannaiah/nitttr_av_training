@@ -1,4 +1,3 @@
-import numpy as np
 from pal.products.qcar import QCar
 
 myCar = QCar(readMode=1, frequency=10)
@@ -27,3 +26,4 @@ except KeyboardInterrupt:
     print("\nProgram stopped by user (CTRL+C).")
 
 myCar.write(0.0, 0.0)
+
