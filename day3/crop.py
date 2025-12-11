@@ -22,7 +22,7 @@ class LidarCropper(Node):
         # Subscriber to original pointcloud topic
         self.subscription = self.create_subscription(
             PointCloud2,
-            '/sensing/lidar/top/pointcloud',
+            '/sensing/lidar/top/ouster/points',
             self.callback,
             qos
         )
@@ -38,8 +38,10 @@ class LidarCropper(Node):
 
         cropped_points = []
         for x, y, z in points:
+            # angle = math.degrees(math.atan2(y, x))
             angle = math.degrees(math.atan2(y, x))
-            if -10 <= angle <= 10:
+            #if (0 < angle <= 180):
+            if ((angle >= 150) | (angle <= -150)):
                 cropped_points.append((x, y, z))
 
         self.get_logger().info(f"Cropped points count: {len(cropped_points)}")
@@ -65,3 +67,6 @@ def main(args=None):
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
