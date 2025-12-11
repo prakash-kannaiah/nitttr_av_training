@@ -3,3 +3,15 @@ https://drive.google.com/file/d/1vbdVwrDsf2VugnSGavPwvw2kvu9TgfN8/view?usp=shari
 
 map_bag
 https://drive.google.com/file/d/1thca65I_b6dXU-9k_peObui5qPVP8Spn/view?usp=sharing
+
+
+#error:
+
+sudo apt install ros-humble-perception-pcl \
+                 ros-humble-pcl-msgs \
+                 ros-humble-vision-opencv \
+                 ros-humble-xacro
+
+# Add GTSAM-PPA
+sudo add-apt-repository ppa:borglab/gtsam-release-4.1
+sudo apt install libgtsam-dev libgtsam-unstable-dev
